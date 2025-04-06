@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seven Muslims - AI for Islamic Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #cbd5e1;
+    }
+    .language-select {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    select {
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .apps {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .app-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+    .app-card h3 {
+      margin-top: 0;
+    }
+    .app-card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: 600;
+    }
+    .social-links {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .social-links a {
+      margin: 0 0.5rem;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+    footer a {
+      color: #64748b;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="language-select">
+      <select id="languageSwitcher">
+        <option value="en">English</option>
+        <option value="id">Bahasa Indonesia</option>
+      </select>
+    </div>
+    <h1 data-en="Seven Muslims" data-id="Tujuh Muslim">Seven Muslims</h1>
+    <p data-en="Exploring AI to help people learn about Islam" data-id="Menjelajahi AI untuk membantu orang belajar tentang Islam">Exploring AI to help people learn about Islam</p>
+  </header>
+  <section>
+    <h2 data-en="Our AI-Powered Projects" data-id="Proyek Kami yang Didukung AI">Our AI-Powered Projects</h2>
+    <p data-en="We're building helpful tools using artificial intelligence to make Islamic knowledge more accessible and engaging." data-id="Kami membuat alat yang bermanfaat menggunakan kecerdasan buatan untuk membuat pengetahuan Islam lebih mudah diakses dan menarik.">We're building helpful tools using artificial intelligence to make Islamic knowledge more accessible and engaging.</p>
+    <div class="apps">
+      <div class="app-card">
+        <h3>Moslem Bot</h3>
+        <p data-en="Your Islamic companion app, available now on Google Playstore." data-id="Aplikasi pendamping Islami Anda, sekarang tersedia di Google Playstore.">Your Islamic companion app, available now on Google Playstore.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.seven.moslembot" target="_blank">Get it on Google Play</a>
+      </div>
+      <div class="app-card">
+        <h3>Quran Finder</h3>
+        <p data-en="Search and explore the Quran instantly using AI on Hugging Face Spaces." data-id="Cari dan jelajahi Al-Qur'an secara instan menggunakan AI di Hugging Face Spaces.">Search and explore the Quran instantly using AI on Hugging Face Spaces.</p>
+        <a href="https://huggingface.co/spaces/sevenmuslims/quran-finder" target="_blank">Try Quran Finder</a>
+      </div>
+      <div class="app-card">
+        <h3>Hadiths Finder</h3>
+        <p data-en="Find Hadiths from trusted sources in seconds, powered by AI search tools." data-id="Temukan Hadis dari sumber terpercaya dalam hitungan detik, didukung oleh alat pencarian AI.">Find Hadiths from trusted sources in seconds, powered by AI search tools.</p>
+        <a href="https://huggingface.co/spaces/sevenmuslims/hadiths-finder" target="_blank">Try Hadiths Finder</a>
+      </div>
+    </div>
+    <div class="social-links">
+      <h3 data-en="Connect with us" data-id="Terhubung dengan kami">Connect with us</h3>
+      <a href="https://facebook.com/sevenmuslims" target="_blank">Facebook</a>
+      <a href="https://linkedin.com/in/sevenmuslims" target="_blank">LinkedIn</a>
+      <a href="https://youtube.com/@sevenmuslims" target="_blank">YouTube</a>
+      <a href="https://instagram.com/sevenmuslims" target="_blank">Instagram</a>
+      <a href="https://sociabuzz.com/sevenmuslims" target="_blank">Sociabuzz</a>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 Seven Muslims. All rights reserved. |
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+  <script>
+    const switcher = document.getElementById('languageSwitcher');
+    switcher.addEventListener('change', () => {
+      const lang = switcher.value;
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    });
+  </script>
+</body>
+</html>
