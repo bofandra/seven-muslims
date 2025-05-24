@@ -91,6 +91,24 @@
       text-decoration: none;
     }
   </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1419132529240776');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1419132529240776&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
   <header>
@@ -172,5 +190,34 @@
     }
   </style>
 
+  <script>
+    // Telegram Chat Button
+    document.getElementById('telegram-chat-button')?.addEventListener('click', function () {
+      fbq('track', 'Contact', {
+        content_name: 'Telegram Chat with MoslemBot'
+      });
+    });
+
+    // Get it on Google Play
+    document.querySelector('a[href*="play.google.com/store/apps/details?id=com.sevenmuslims.moslem_bot"]')?.addEventListener('click', function () {
+      fbq('track', 'ViewContent', {
+        content_name: 'MoslemBot on Google Play'
+      });
+    });
+
+    // Try Quran Finder
+    document.querySelector('a[href*="huggingface.co/spaces/Bofandra/quran-finder"]')?.addEventListener('click', function () {
+      fbq('track', 'ViewContent', {
+        content_name: 'Quran Finder'
+      });
+    });
+
+    // Try Hadiths Finder
+    document.querySelector('a[href*="huggingface.co/spaces/Bofandra/hadiths-finder"]')?.addEventListener('click', function () {
+      fbq('track', 'ViewContent', {
+        content_name: 'Hadiths Finder'
+      });
+    });
+  </script>
 </body>
 </html>
