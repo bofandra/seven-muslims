@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fine-Tuning with Limited Resources</title>
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #f9f9f9; margin: 0; color: #333; }
+    header { background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; position: relative; }
+    .language-select { position: absolute; top: 1rem; right: 1rem; }
+    select { padding: 0.25rem; font-size: 1rem; border-radius: 0.25rem; }
+    main { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+    h1 { font-size: 2rem; }
+    p { line-height: 1.6; margin-bottom: 1rem; }
+    .nav { margin-top: 3rem; display: flex; justify-content: space-between; }
+    a { color: #2563eb; text-decoration: none; font-weight: 600; }
+    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="language-select">
+      <select id="languageSwitcher">
+        <option value="en">English</option>
+        <option value="id">Bahasa Indonesia</option>
+      </select>
+    </div>
+    <h1 data-en="Fine-Tuning with Limited Resources" data-id="Melakukan Fine-Tuning dengan Sumber Daya Terbatas">
+      Fine-Tuning with Limited Resources
+    </h1>
+  </header>
+  <main>
+    <p data-en="Even with limited hardware, you can fine-tune models using techniques like LoRA or QLoRA, which adjust only a small subset of parameters."
+       data-id="Bahkan dengan perangkat keras terbatas, Anda dapat melakukan fine-tuning model menggunakan teknik seperti LoRA atau QLoRA, yang hanya menyesuaikan sebagian kecil parameter.">
+       Even with limited hardware, you can fine-tune models using techniques like LoRA...
+    </p>
+    <p data-en="These methods are efficient and can run on Google Colab or other free GPU platforms."
+       data-id="Metode ini efisien dan dapat dijalankan di Google Colab atau platform GPU gratis lainnya.">
+       These methods are efficient and can run on Google Colab or other free GPU platforms.
+    </p>
+    <div class="nav">
+      <a href="fine-tuning.html">&larr; Previous</a>
+      <a href="share-model.html">Next &rarr;</a>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Seven Muslims. | <a href="/index.html">Home</a>
+  </footer>
+  <script>
+    const switcher = document.getElementById('languageSwitcher');
+    switcher.addEventListener('change', () => {
+      const lang = switcher.value;
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    });
+  </script>
+</body>
+</html>

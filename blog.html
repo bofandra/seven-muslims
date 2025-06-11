@@ -65,6 +65,24 @@
       text-decoration: underline;
     }
   </style>
+  <script>
+
+    function setLanguage(lang) {
+        document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+        });
+    }
+
+    // Set default language on page load
+    window.addEventListener('DOMContentLoaded', () => {
+        setLanguage('en');
+    });
+
+    switcher.addEventListener('change', () => {
+        setLanguage(switcher.value);
+    });
+ </script>
+
 </head>
 <body>
   <header>
@@ -79,50 +97,113 @@
   </header>
   <main>
     <!-- Repeat structure for each blog article -->
+    <a href="ai-vs-traditional.html" style="text-decoration: none; color: inherit;">
+        <article>
+            <h2 data-en="What Makes AI Different from Traditional Programming?" data-id="Apa yang Membuat AI Berbeda dengan Pemrograman Tradisional?">
+            What Makes AI Different from Traditional Programming?
+            </h2>
+            <p data-en="AI learns from data, while traditional code is explicitly programmed by humans."
+            data-id="AI belajar dari data, sementara pemrograman tradisional bergantung pada aturan buatan manusia.">
+            AI learns from data, while traditional code is explicitly programmed by humans.
+            </p>
+        </article>
+    </a>
+    <a href="ai-revolution.html" style="text-decoration: none; color: inherit;">
     <article>
-      <h2 data-en="What Makes AI Different from Traditional Programming?" data-id="Apa yang Membuat AI Berbeda dengan Pemrograman Tradisional?"></h2>
-      <p data-en="AI learns from data, while traditional code is explicitly programmed by humans." data-id="AI belajar dari data, sementara pemrograman tradisional bergantung pada aturan buatan manusia."></p>
+        <h2 data-en="AI Revolution: From Perceptron to Transformer" data-id="Revolusi AI: Dari Perceptron ke Transformer">
+        AI Revolution: From Perceptron to Transformer
+        </h2>
+        <p data-en="AI has evolved from simple models like Perceptron to advanced ones like Transformers."
+        data-id="AI telah berkembang dari model sederhana seperti Perceptron hingga Transformer yang canggih.">
+        AI has evolved from simple models like Perceptron to advanced ones like Transformers.
+        </p>
     </article>
+    </a>
 
+    <a href="transformer-overview.html" style="text-decoration: none; color: inherit;">
     <article>
-      <h2 data-en="AI Revolution: From Perceptron to Transformer" data-id="Revolusi AI: Dari Perceptron ke Transformer"></h2>
-      <p data-en="AI has evolved from simple models like Perceptron to advanced ones like Transformers." data-id="AI telah berkembang dari model sederhana seperti Perceptron hingga Transformer yang canggih."></p>
+        <h2 data-en="Deep Dive: How Transformers Work – “Attention Is All You Need”" data-id="Penjelasan: Cara Kerja Transformer – “Attention Is All You Need”">
+        Deep Dive: How Transformers Work – “Attention Is All You Need”
+        </h2>
+        <p data-en="Transformers use attention mechanisms to focus on relevant words during learning."
+        data-id="Transformer menggunakan mekanisme perhatian untuk fokus pada kata yang relevan selama pembelajaran.">
+        Transformers use attention mechanisms to focus on relevant words during learning.
+        </p>
     </article>
+    </a>
 
+    <a href="huggingface-hub.html" style="text-decoration: none; color: inherit;">
     <article>
-      <h2 data-en="Deep Dive: How Transformers Work – “Attention Is All You Need”" data-id="Penjelasan: Cara Kerja Transformer – “Attention Is All You Need”"></h2>
-      <p data-en="Transformers use attention mechanisms to focus on relevant words during learning." data-id="Transformer menggunakan mekanisme perhatian untuk fokus pada kata yang relevan selama pembelajaran."></p>
+        <h2 data-en="Why Hugging Face Became the Hub for Open Source LLMs" data-id="Mengapa Hugging Face Menjadi Pusat LLM Open Source">
+        Why Hugging Face Became the Hub for Open Source LLMs
+        </h2>
+        <p data-en="Hugging Face provides models, datasets, and APIs for the AI community."
+        data-id="Hugging Face menyediakan model, dataset, dan API untuk komunitas AI.">
+        Hugging Face provides models, datasets, and APIs for the AI community.
+        </p>
     </article>
+    </a>
 
+    <a href="text-to-embedding.html" style="text-decoration: none; color: inherit;">
     <article>
-      <h2 data-en="Why Hugging Face Became the Hub for Open Source LLMs" data-id="Mengapa Hugging Face Menjadi Pusat LLM Open Source"></h2>
-      <p data-en="Hugging Face provides models, datasets, and APIs for the AI community." data-id="Hugging Face menyediakan model, dataset, dan API untuk komunitas AI."></p>
+        <h2 data-en="Transform Text to Embedding with HuggingFace Sentence Transformers" data-id="Ubah Teks Menjadi Embedding dengan Sentence Transformer HuggingFace">
+        Transform Text to Embedding with HuggingFace Sentence Transformers
+        </h2>
+        <p data-en="Use sentence-transformers to convert text to vector embeddings."
+        data-id="Gunakan sentence-transformers untuk mengubah teks menjadi vektor embedding.">
+        Use sentence-transformers to convert text to vector embeddings.
+        </p>
     </article>
+    </a>
 
+    <a href="faiss-indexing.html" style="text-decoration: none; color: inherit;">
     <article>
-      <h2 data-en="Transform Text to Embedding with HuggingFace Sentence Transformers" data-id="Ubah Teks Menjadi Embedding dengan Sentence Transformer HuggingFace"></h2>
-      <p data-en="Use sentence-transformers to convert text to vector embeddings." data-id="Gunakan sentence-transformers untuk mengubah teks menjadi vektor embedding."></p>
+        <h2 data-en="Saving Embeddings with FAISS – The Smart Choice" data-id="Menyimpan Embedding dengan FAISS – Pilihan Cerdas">
+        Saving Embeddings with FAISS – The Smart Choice
+        </h2>
+        <p data-en="FAISS lets you store and search embeddings efficiently."
+        data-id="FAISS memungkinkan penyimpanan dan pencarian embedding secara efisien.">
+        FAISS lets you store and search embeddings efficiently.
+        </p>
     </article>
+    </a>
 
+    <a href="compare-with-faiss.html" style="text-decoration: none; color: inherit;">
     <article>
-      <h2 data-en="Saving Embeddings with FAISS – The Smart Choice" data-id="Menyimpan Embedding dengan FAISS – Pilihan Cerdas"></h2>
-      <p data-en="FAISS lets you store and search embeddings efficiently." data-id="FAISS memungkinkan penyimpanan dan pencarian embedding secara efisien."></p>
+        <h2 data-en="Comparing User Queries with Your FAISS Index" data-id="Membandingkan Pertanyaan Pengguna dengan Indeks FAISS Anda">
+        Comparing User Queries with Your FAISS Index
+        </h2>
+        <p data-en="Compare query embeddings to find the most relevant context."
+        data-id="Bandingkan embedding pertanyaan untuk menemukan konteks paling relevan.">
+        Compare query embeddings to find the most relevant context.
+        </p>
     </article>
+    </a>
 
+    <a href="rag-explained.html" style="text-decoration: none; color: inherit;">
     <article>
-      <h2 data-en="Comparing User Queries with Your FAISS Index" data-id="Membandingkan Pertanyaan Pengguna dengan Indeks FAISS Anda"></h2>
-      <p data-en="Compare query embeddings to find the most relevant context." data-id="Bandingkan embedding pertanyaan untuk menemukan konteks paling relevan."></p>
+        <h2 data-en="What is RAG? Retrieval-Augmented Generation Explained" data-id="Apa Itu RAG? Penjelasan tentang Retrieval-Augmented Generation">
+        What is RAG? Retrieval-Augmented Generation Explained
+        </h2>
+        <p data-en="RAG combines retrieval with generation to enhance responses using knowledge base."
+        data-id="RAG menggabungkan pencarian dengan generasi untuk meningkatkan jawaban dengan basis pengetahuan.">
+        RAG combines retrieval with generation to enhance responses using knowledge base.
+        </p>
     </article>
+    </a>
 
+    <a href="share-model.html" style="text-decoration: none; color: inherit;">
     <article>
-      <h2 data-en="What is RAG? Retrieval-Augmented Generation Explained" data-id="Apa Itu RAG? Penjelasan tentang Retrieval-Augmented Generation"></h2>
-      <p data-en="RAG combines retrieval with generation to enhance responses using knowledge base." data-id="RAG menggabungkan pencarian dengan generasi untuk meningkatkan jawaban dengan basis pengetahuan."></p>
+        <h2 data-en="Fine-Tuning LLMs and Sharing on Hugging Face" data-id="Fine-Tuning LLM dan Membagikannya di Hugging Face">
+        Fine-Tuning LLMs and Sharing on Hugging Face
+        </h2>
+        <p data-en="You can fine-tune your own models and publish them to Hugging Face."
+        data-id="Anda bisa melakukan fine-tune pada model sendiri dan membagikannya di Hugging Face.">
+        You can fine-tune your own models and publish them to Hugging Face.
+        </p>
     </article>
+    </a>
 
-    <article>
-      <h2 data-en="Fine-Tuning LLMs and Sharing on Hugging Face" data-id="Fine-Tuning LLM dan Membagikannya di Hugging Face"></h2>
-      <p data-en="You can fine-tune your own models and publish them to Hugging Face." data-id="Anda bisa melakukan fine-tune pada model sendiri dan membagikannya di Hugging Face."></p>
-    </article>
   </main>
   <footer>
     &copy; 2025 Seven Muslims. All rights reserved. | <a href="/index.html">Home</a>
