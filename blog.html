@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Blog – Seven Muslims</title>
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .language-select {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    select {
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+    }
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    article {
+      background: white;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+    article h2 {
+      margin-top: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="language-select">
+      <select id="languageSwitcher">
+        <option value="en">English</option>
+        <option value="id">Bahasa Indonesia</option>
+      </select>
+    </div>
+    <h1 data-en="Seven Muslims Blog" data-id="Blog Seven Muslims">Seven Muslims Blog</h1>
+    <p data-en="Learn about the world of AI, LLMs, and how they empower Islamic tools" data-id="Pelajari dunia AI, LLM, dan bagaimana mereka memperkuat alat Islam">Learn about the world of AI, LLMs, and how they empower Islamic tools</p>
+  </header>
+  <main>
+    <!-- Repeat structure for each blog article -->
+    <article>
+      <h2 data-en="What Makes AI Different from Traditional Programming?" data-id="Apa yang Membuat AI Berbeda dengan Pemrograman Tradisional?"></h2>
+      <p data-en="AI learns from data, while traditional code is explicitly programmed by humans." data-id="AI belajar dari data, sementara pemrograman tradisional bergantung pada aturan buatan manusia."></p>
+    </article>
+
+    <article>
+      <h2 data-en="AI Revolution: From Perceptron to Transformer" data-id="Revolusi AI: Dari Perceptron ke Transformer"></h2>
+      <p data-en="AI has evolved from simple models like Perceptron to advanced ones like Transformers." data-id="AI telah berkembang dari model sederhana seperti Perceptron hingga Transformer yang canggih."></p>
+    </article>
+
+    <article>
+      <h2 data-en="Deep Dive: How Transformers Work – “Attention Is All You Need”" data-id="Penjelasan: Cara Kerja Transformer – “Attention Is All You Need”"></h2>
+      <p data-en="Transformers use attention mechanisms to focus on relevant words during learning." data-id="Transformer menggunakan mekanisme perhatian untuk fokus pada kata yang relevan selama pembelajaran."></p>
+    </article>
+
+    <article>
+      <h2 data-en="Why Hugging Face Became the Hub for Open Source LLMs" data-id="Mengapa Hugging Face Menjadi Pusat LLM Open Source"></h2>
+      <p data-en="Hugging Face provides models, datasets, and APIs for the AI community." data-id="Hugging Face menyediakan model, dataset, dan API untuk komunitas AI."></p>
+    </article>
+
+    <article>
+      <h2 data-en="Transform Text to Embedding with HuggingFace Sentence Transformers" data-id="Ubah Teks Menjadi Embedding dengan Sentence Transformer HuggingFace"></h2>
+      <p data-en="Use sentence-transformers to convert text to vector embeddings." data-id="Gunakan sentence-transformers untuk mengubah teks menjadi vektor embedding."></p>
+    </article>
+
+    <article>
+      <h2 data-en="Saving Embeddings with FAISS – The Smart Choice" data-id="Menyimpan Embedding dengan FAISS – Pilihan Cerdas"></h2>
+      <p data-en="FAISS lets you store and search embeddings efficiently." data-id="FAISS memungkinkan penyimpanan dan pencarian embedding secara efisien."></p>
+    </article>
+
+    <article>
+      <h2 data-en="Comparing User Queries with Your FAISS Index" data-id="Membandingkan Pertanyaan Pengguna dengan Indeks FAISS Anda"></h2>
+      <p data-en="Compare query embeddings to find the most relevant context." data-id="Bandingkan embedding pertanyaan untuk menemukan konteks paling relevan."></p>
+    </article>
+
+    <article>
+      <h2 data-en="What is RAG? Retrieval-Augmented Generation Explained" data-id="Apa Itu RAG? Penjelasan tentang Retrieval-Augmented Generation"></h2>
+      <p data-en="RAG combines retrieval with generation to enhance responses using knowledge base." data-id="RAG menggabungkan pencarian dengan generasi untuk meningkatkan jawaban dengan basis pengetahuan."></p>
+    </article>
+
+    <article>
+      <h2 data-en="Fine-Tuning LLMs and Sharing on Hugging Face" data-id="Fine-Tuning LLM dan Membagikannya di Hugging Face"></h2>
+      <p data-en="You can fine-tune your own models and publish them to Hugging Face." data-id="Anda bisa melakukan fine-tune pada model sendiri dan membagikannya di Hugging Face."></p>
+    </article>
+  </main>
+  <footer>
+    &copy; 2025 Seven Muslims. All rights reserved. | <a href="/index.html">Home</a>
+  </footer>
+
+  <script>
+    const switcher = document.getElementById('languageSwitcher');
+    switcher.addEventListener('change', () => {
+      const lang = switcher.value;
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    });
+  </script>
+</body>
+</html>
