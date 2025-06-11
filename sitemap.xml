@@ -33,4 +33,44 @@
     <priority>0.3</priority>
   </url>
 
+
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://seven-muslims.com/ai-vs-traditional.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/ai-revolution.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/transformer-overview.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/huggingface-hub.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/text-to-embedding.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/faiss-indexing.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/compare-with-faiss.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/beyond-embedding.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/rag-explained.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/fine-tuning.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/fine-tuning-light.html</loc>
+  </url>
+  <url>
+    <loc>https://seven-muslims.com/share-model.html</loc>
+  </url>
+  
 </urlset>
