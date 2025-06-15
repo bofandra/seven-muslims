@@ -59,6 +59,11 @@
       color: #64748b;
     }
   </style>
+  <!-- Prism.js for syntax highlighting -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
 </head>
 <body>
   <header>
@@ -71,13 +76,32 @@
     <h1 data-en="Comparing User Queries with FAISS Index" data-id="Membandingkan Pertanyaan Pengguna dengan Indeks FAISS">Comparing User Queries with FAISS Index</h1>
   </header>
   <main>
-    <p data-en="To answer a query, encode it into a vector and use FAISS to search the most relevant saved embeddings. This makes the response contextual and efficient." data-id="Untuk menjawab pertanyaan, enkodekan menjadi vektor dan gunakan FAISS untuk mencari embedding yang paling relevan. Ini membuat respons menjadi kontekstual dan efisien.">To answer a query, encode it into a vector and use FAISS to search the most relevant saved embeddings. This makes the response contextual and efficient.</p>
-<p data-en="The top matches can be passed as context to an LLM for generating a precise answer." data-id="Pencocokan teratas dapat diteruskan sebagai konteks ke LLM untuk menghasilkan jawaban yang tepat.">The top matches can be passed as context to an LLM for generating a precise answer.</p>
-    <div class="nav">
-      <a href="faiss-indexing.html">&larr; Previous</a>
-      <a href="beyond-embedding.html">Next &rarr;</a>
-    </div>
-  </main>
+  <p data-en="To answer a query, encode it into a vector and use FAISS to search the most relevant saved embeddings. This makes the response contextual and efficient." data-id="Untuk menjawab pertanyaan, enkodekan menjadi vektor dan gunakan FAISS untuk mencari embedding yang paling relevan. Ini membuat respons menjadi kontekstual dan efisien.">To answer a query, encode it into a vector and use FAISS to search the most relevant saved embeddings. This makes the response contextual and efficient.</p>
+  
+  <p data-en="The top matches can be passed as context to an LLM for generating a precise answer." data-id="Pencocokan teratas dapat diteruskan sebagai konteks ke LLM untuk menghasilkan jawaban yang tepat.">The top matches can be passed as context to an LLM for generating a precise answer.</p>
+
+  <pre><code class="language-python">
+import faiss
+import numpy as np
+
+# Sample query vector
+query_vector = np.random.rand(1, 512).astype('float32')
+
+# Load the FAISS index
+index = faiss.read_index("my_index.faiss")
+
+# Search for top 5 nearest neighbors
+D, I = index.search(query_vector, k=5)
+
+print("Top 5 match indices:", I)
+</code></pre>
+
+  <div class="nav">
+    <a href="faiss-indexing.html">&larr; Previous</a>
+    <a href="beyond-embedding.html">Next &rarr;</a>
+  </div>
+</main>
+
   <footer>
     &copy; 2025 Seven Muslims. | <a href="/index.html">Home</a>
   </footer>
