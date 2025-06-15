@@ -38,6 +38,10 @@
     h1 {
       font-size: 2rem;
     }
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.25rem;
+    }
     p {
       line-height: 1.6;
       margin-bottom: 1rem;
@@ -72,7 +76,48 @@
   </header>
   <main>
     <p data-en="Transformers revolutionized NLP by replacing recurrence with attention mechanisms. Each word in a sentence attends to every other word, assigning weights to represent relevance." data-id="Transformer merevolusi NLP dengan menggantikan rekursi dengan mekanisme perhatian. Setiap kata dalam kalimat memperhatikan kata lainnya dan memberi bobot untuk menunjukkan relevansi.">Transformers revolutionized NLP by replacing recurrence with attention mechanisms. Each word in a sentence attends to every other word, assigning weights to represent relevance.</p>
-<p data-en="The key components include self-attention, multi-head attention, and positional encoding, enabling deep contextual understanding of language." data-id="Komponen kunci termasuk self-attention, multi-head attention, dan positional encoding, yang memungkinkan pemahaman bahasa secara mendalam dan kontekstual.">The key components include self-attention, multi-head attention, and positional encoding, enabling deep contextual understanding of language.</p>
+    <p data-en="The key components include self-attention, multi-head attention, and positional encoding, enabling deep contextual understanding of language." data-id="Komponen kunci termasuk self-attention, multi-head attention, dan positional encoding, yang memungkinkan pemahaman bahasa secara mendalam dan kontekstual.">The key components include self-attention, multi-head attention, and positional encoding, enabling deep contextual understanding of language.</p>
+
+    <!-- 🔽 Explanations Start Here -->
+    <section>
+      <h2 data-en="Word Embedding" data-id="Word Embedding">Word Embedding</h2>
+      <p data-en="Word embeddings convert words into numerical vectors that capture their meanings and relationships in a continuous vector space." 
+         data-id="Word embedding mengubah kata menjadi vektor numerik yang merepresentasikan makna dan hubungan antar kata dalam ruang vektor kontinu.">
+        Word embeddings convert words into numerical vectors that capture their meanings and relationships in a continuous vector space.
+      </p>
+
+      <h2 data-en="Positional Encoding" data-id="Positional Encoding">Positional Encoding</h2>
+      <p data-en="Since Transformers process input all at once (not sequentially), positional encoding is added to provide information about the position of each word in the sequence." 
+         data-id="Karena Transformer memproses input secara bersamaan (tidak berurutan), positional encoding ditambahkan untuk memberikan informasi tentang posisi setiap kata dalam urutan.">
+        Since Transformers process input all at once (not sequentially), positional encoding is added to provide information about the position of each word in the sequence.
+      </p>
+
+      <h2 data-en="Self-Attention" data-id="Self-Attention">Self-Attention</h2>
+      <p data-en="Self-attention lets each word in a sentence focus on all other words to understand context. It computes weights to decide which words to pay more attention to." 
+         data-id="Self-attention memungkinkan setiap kata dalam kalimat memperhatikan semua kata lain untuk memahami konteks. Mekanisme ini menghitung bobot untuk menentukan kata mana yang lebih relevan.">
+        Self-attention lets each word in a sentence focus on all other words to understand context. It computes weights to decide which words to pay more attention to.
+      </p>
+
+      <h2 data-en="Residual Connection" data-id="Residual Connection">Residual Connection</h2>
+      <p data-en="Residual connections add the original input back to the output of a layer. This helps preserve information and improves training in deep networks." 
+         data-id="Residual connection menambahkan input asli kembali ke output sebuah layer. Ini membantu menjaga informasi dan memperbaiki pelatihan pada jaringan yang dalam.">
+        Residual connections add the original input back to the output of a layer. This helps preserve information and improves training in deep networks.
+      </p>
+
+      <h2 data-en="Query, Key, and Value" data-id="Query, Key, dan Value">Query, Key, and Value</h2>
+      <p data-en="In self-attention, each word generates a query, key, and value. Attention scores are computed by comparing queries with keys, and then applied to values." 
+         data-id="Dalam self-attention, setiap kata menghasilkan query, key, dan value. Skor perhatian dihitung dengan membandingkan query dengan key, lalu diterapkan pada value.">
+        In self-attention, each word generates a query, key, and value. Attention scores are computed by comparing queries with keys, and then applied to values.
+      </p>
+
+      <h2 data-en="Encoder & Decoder" data-id="Encoder & Decoder">Encoder & Decoder</h2>
+      <p data-en="The encoder processes the input sequence and creates context-aware representations. The decoder uses these representations to generate output (like a translation)." 
+         data-id="Encoder memproses urutan input dan menghasilkan representasi yang memahami konteks. Decoder menggunakan representasi ini untuk menghasilkan output (seperti terjemahan).">
+        The encoder processes the input sequence and creates context-aware representations. The decoder uses these representations to generate output (like a translation).
+      </p>
+    </section>
+    <!-- 🔼 Explanations End Here -->
+
     <div class="nav">
       <a href="ai-revolution.html">&larr; Previous</a>
       <span></span>
