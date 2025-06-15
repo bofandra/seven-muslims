@@ -18,6 +18,9 @@
     a { color: #2563eb; text-decoration: none; font-weight: 600; }
     footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #64748b; }
   </style>
+  <!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css" rel="stylesheet" />
+
 </head>
 <body>
   <header>
@@ -33,18 +36,46 @@
   </header>
   <main>
     <p data-en="Fine-tuning is necessary when a general model doesn’t fit a specific domain, tone, or behavior you want. It adapts the model to your unique use case."
-       data-id="Fine-tuning diperlukan saat model umum tidak sesuai dengan domain, nada, atau perilaku spesifik yang Anda inginkan. Ini menyesuaikan model dengan kasus penggunaan unik Anda.">
-       Fine-tuning is necessary when a general model doesn’t fit a specific domain...
+      data-id="Fine-tuning diperlukan saat model umum tidak sesuai dengan domain, nada, atau perilaku spesifik yang Anda inginkan. Ini menyesuaikan model dengan kasus penggunaan unik Anda.">
+      Fine-tuning is necessary when a general model doesn’t fit a specific domain...
     </p>
     <p data-en="It improves accuracy and relevance, especially for specialized applications like religious content or customer service."
-       data-id="Ini meningkatkan akurasi dan relevansi, terutama untuk aplikasi khusus seperti konten keagamaan atau layanan pelanggan.">
-       It improves accuracy and relevance, especially for specialized applications...
+      data-id="Ini meningkatkan akurasi dan relevansi, terutama untuk aplikasi khusus seperti konten keagamaan atau layanan pelanggan.">
+      It improves accuracy and relevance, especially for specialized applications...
     </p>
+
+    <h2>Example in Python</h2>
+    <pre><code class="language-python">
+  from transformers import AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingArguments
+
+  tokenizer = AutoTokenizer.from_pretrained("gpt2")
+  model = AutoModelForCausalLM.from_pretrained("gpt2")
+
+  # Sample fine-tuning setup
+  training_args = TrainingArguments(
+      output_dir="./results",
+      num_train_epochs=3,
+      per_device_train_batch_size=4,
+      save_steps=10_000,
+      save_total_limit=2,
+  )
+
+  trainer = Trainer(
+      model=model,
+      args=training_args,
+      train_dataset=my_train_dataset,
+      eval_dataset=my_eval_dataset,
+  )
+
+  trainer.train()
+    </code></pre>
+
     <div class="nav">
       <a href="rag-explained.html">&larr; Previous</a>
       <a href="fine-tuning-light.html">Next &rarr;</a>
     </div>
   </main>
+
   <footer>
     &copy; 2025 Seven Muslims. | <a href="/index.html">Home</a>
   </footer>
@@ -57,5 +88,8 @@
       });
     });
   </script>
+  <!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
 </body>
 </html>
