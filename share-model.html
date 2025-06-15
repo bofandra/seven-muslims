@@ -6,6 +6,13 @@
   <title>Sharing Fine-Tuned Models on Hugging Face</title>
   <link rel="icon" type="image/png" href="/icon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  
+  <!-- Prism CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <!-- Prism JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
   <style>
     body { font-family: 'Inter', sans-serif; background: #f9f9f9; margin: 0; color: #333; }
     header { background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; position: relative; }
@@ -14,6 +21,8 @@
     main { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
     h1 { font-size: 2rem; }
     p { line-height: 1.6; margin-bottom: 1rem; }
+    pre { background: #f5f5f5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+    code { font-family: monospace; font-size: 0.95rem; }
     .nav { margin-top: 3rem; display: flex; justify-content: space-between; }
     a { color: #2563eb; text-decoration: none; font-weight: 600; }
     footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #64748b; }
@@ -34,12 +43,33 @@
   <main>
     <p data-en="Once your model is fine-tuned, you can upload it to Hugging Face Model Hub for others to download or access via API."
        data-id="Setelah model Anda di-fine-tune, Anda dapat mengunggahnya ke Hugging Face Model Hub agar orang lain dapat mengunduh atau mengaksesnya melalui API.">
-       Once your model is fine-tuned, you can upload it to Hugging Face...
+       Once your model is fine-tuned, you can upload it to Hugging Face Model Hub for others to download or access via API.
     </p>
+
+    <pre><code class="language-python">
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from huggingface_hub import login
+
+# Log in to Hugging Face (use your token from https://huggingface.co/settings/tokens)
+login(token="your_huggingface_token")
+
+# Load your fine-tuned model and tokenizer
+model = AutoModelForSequenceClassification.from_pretrained("./my_fine_tuned_model")
+tokenizer = AutoTokenizer.from_pretrained("./my_fine_tuned_model")
+
+# Push them to the Hub
+repo_name = "my-awesome-finetuned-model"
+model.push_to_hub(repo_name)
+tokenizer.push_to_hub(repo_name)
+
+print(f"Model uploaded to https://huggingface.co/your-username/{repo_name}")
+    </code></pre>
+
     <p data-en="This helps build community collaboration and accelerates AI development."
        data-id="Ini membantu membangun kolaborasi komunitas dan mempercepat pengembangan AI.">
        This helps build community collaboration and accelerates AI development.
     </p>
+
     <div class="nav">
       <a href="fine-tuning-light.html">&larr; Previous</a>
       <span></span>
