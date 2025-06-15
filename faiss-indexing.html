@@ -6,6 +6,12 @@
   <title>Saving Embeddings with FAISS – The Smart Choice</title>
   <link rel="icon" type="image/png" href="/icon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Prism.js for syntax highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -52,6 +58,15 @@
       text-decoration: none;
       font-weight: 600;
     }
+    pre {
+      background: #f0f0f0;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 0.5rem;
+    }
+    code {
+      font-family: monospace;
+    }
     footer {
       text-align: center;
       padding: 1rem;
@@ -72,7 +87,38 @@
   </header>
   <main>
     <p data-en="FAISS is a similarity search library developed by Facebook AI. It allows you to index and search embeddings efficiently even at large scale." data-id="FAISS adalah perpustakaan pencarian kemiripan yang dikembangkan oleh Facebook AI. Ini memungkinkan Anda mengindeks dan mencari embedding secara efisien bahkan dalam skala besar.">FAISS is a similarity search library developed by Facebook AI. It allows you to index and search embeddings efficiently even at large scale.</p>
-<p data-en="It supports fast retrieval using various distance metrics, GPU acceleration, and can handle millions of vectors." data-id="Ini mendukung pengambilan cepat menggunakan berbagai metrik jarak, akselerasi GPU, dan dapat menangani jutaan vektor.">It supports fast retrieval using various distance metrics, GPU acceleration, and can handle millions of vectors.</p>
+    <p data-en="It supports fast retrieval using various distance metrics, GPU acceleration, and can handle millions of vectors." data-id="Ini mendukung pengambilan cepat menggunakan berbagai metrik jarak, akselerasi GPU, dan dapat menangani jutaan vektor.">It supports fast retrieval using various distance metrics, GPU acceleration, and can handle millions of vectors.</p>
+
+    <h2>Python Example: Save & Load FAISS Index</h2>
+    <pre><code class="language-python">
+import faiss
+import numpy as np
+
+# Step 1: Generate some random embeddings (vectors)
+dimension = 128  # size of each embedding
+num_vectors = 1000
+embeddings = np.random.random((num_vectors, dimension)).astype('float32')
+
+# Step 2: Create a FAISS index
+index = faiss.IndexFlatL2(dimension)  # L2 distance metric
+
+# Step 3: Add embeddings to the index
+index.add(embeddings)
+
+# Step 4: Save the index to a file
+faiss.write_index(index, "faiss_index.index")
+
+# Step 5: Load the index back
+loaded_index = faiss.read_index("faiss_index.index")
+
+# Step 6: Perform a search
+query = np.random.random((1, dimension)).astype('float32')
+D, I = loaded_index.search(query, k=5)  # Search for top-5 nearest neighbors
+
+print("Distances:", D)
+print("Indices:", I)
+    </code></pre>
+
     <div class="nav">
       <a href="text-to-embedding.html">&larr; Previous</a>
       <a href="compare-with-faiss.html">Next &rarr;</a>
