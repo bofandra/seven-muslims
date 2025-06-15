@@ -6,17 +6,95 @@
   <title>What is RAG? Retrieval-Augmented Generation Explained</title>
   <link rel="icon" type="image/png" href="/icon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
   <style>
-    body { font-family: 'Inter', sans-serif; background: #f9f9f9; margin: 0; color: #333; }
-    header { background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; position: relative; }
-    .language-select { position: absolute; top: 1rem; right: 1rem; }
-    select { padding: 0.25rem; font-size: 1rem; border-radius: 0.25rem; }
-    main { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
-    h1 { font-size: 2rem; }
-    p { line-height: 1.6; margin-bottom: 1rem; }
-    .nav { margin-top: 3rem; display: flex; justify-content: space-between; }
-    a { color: #2563eb; text-decoration: none; font-weight: 600; }
-    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #64748b; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      color: #333;
+    }
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    .language-select {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    select {
+      padding: 0.25rem;
+      font-size: 1rem;
+      border-radius: 0.25rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .nav {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    /* Collapsible Styling */
+    .collapsible {
+      background-color: #e2e8f0;
+      color: #1e293b;
+      cursor: pointer;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .collapsible:hover {
+      background-color: #cbd5e1;
+    }
+
+    .content {
+      padding: 0 1rem 1rem;
+      display: none;
+      overflow: hidden;
+      background-color: #f1f5f9;
+      border-radius: 0.5rem;
+    }
+
+    pre {
+      margin: 0;
+      padding: 1rem;
+      background: #f5f2f0;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+    }
   </style>
 </head>
 <body>
@@ -41,6 +119,62 @@
        data-id="Ini mengurangi halusinasi dan memastikan jawaban didasarkan pada sumber pengetahuan nyata.">
        This reduces hallucinations and ensures answers are grounded...
     </p>
+
+    <button class="collapsible">📄 Example 1: RAG with Built-in Retriever</button>
+    <div class="content">
+      <pre><code class="language-python">
+from transformers import RagTokenizer, RagRetriever, RagSequenceForGeneration
+
+tokenizer = RagTokenizer.from_pretrained("facebook/rag-sequence-nq")
+retriever = RagRetriever.from_pretrained("facebook/rag-sequence-nq", index_name="exact", use_dummy_dataset=True)
+model = RagSequenceForGeneration.from_pretrained("facebook/rag-sequence-nq", retriever=retriever)
+
+input_text = "What is the capital of France?"
+input_ids = tokenizer(input_text, return_tensors="pt").input_ids
+
+outputs = model.generate(input_ids=input_ids)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+      </code></pre>
+    </div>
+
+    <button class="collapsible">📄 Example 2: RAG with User Data Context</button>
+    <div class="content">
+      <pre><code class="language-python">
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from sentence_transformers import SentenceTransformer, util
+import torch
+
+# Example user documents
+user_docs = [
+    "Paris is the capital city of France.",
+    "France is located in Western Europe.",
+    "The Eiffel Tower is one of the most famous landmarks in Paris."
+]
+
+# Step 1: Embed user documents
+embedder = SentenceTransformer('all-MiniLM-L6-v2')
+doc_embeddings = embedder.encode(user_docs, convert_to_tensor=True)
+
+# Step 2: Accept user query
+query = "Where is the Eiffel Tower?"
+query_embedding = embedder.encode(query, convert_to_tensor=True)
+
+# Step 3: Find most relevant document using cosine similarity
+scores = util.pytorch_cos_sim(query_embedding, doc_embeddings)
+best_doc_idx = torch.argmax(scores).item()
+context = user_docs[best_doc_idx]
+
+# Step 4: Generate an answer using context
+tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-small")
+model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-small")
+
+prompt = f"Answer the question based on the context:\nContext: {context}\nQuestion: {query}"
+inputs = tokenizer(prompt, return_tensors="pt")
+outputs = model.generate(**inputs)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+      </code></pre>
+    </div>
+
     <div class="nav">
       <a href="beyond-embedding.html">&larr; Previous</a>
       <a href="fine-tuning.html">Next &rarr;</a>
@@ -49,6 +183,22 @@
   <footer>
     &copy; 2025 Seven Muslims. | <a href="/index.html">Home</a>
   </footer>
+
+  <!-- Prism JS -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+  <!-- Collapsible Script -->
+  <script>
+    document.querySelectorAll(".collapsible").forEach(button => {
+      button.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+
+  <!-- Language Switcher -->
   <script>
     const switcher = document.getElementById('languageSwitcher');
     switcher.addEventListener('change', () => {
