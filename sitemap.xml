@@ -27,6 +27,14 @@
 
   <!-- Other Pages -->
   <url>
+    <loc>https://seven-muslims.com/moslembot-qa.html</loc>
+    <lastmod>2025-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Other Pages -->
+  <url>
     <loc>https://seven-muslims.com/privacy.html</loc>
     <lastmod>2025-06-10</lastmod>
     <changefreq>yearly</changefreq>
