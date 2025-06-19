@@ -8,15 +8,24 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800">
+  <!-- Language Switcher -->
+  <div class="flex justify-end p-4 bg-white shadow-md">
+    <select id="languageSwitcher" class="border border-gray-300 rounded px-2 py-1 text-sm">
+      <option value="en">English</option>
+      <option value="id">Bahasa Indonesia</option>
+    </select>
+  </div>
+
+  <!-- Header -->
   <header class="bg-green-600 text-white p-6 text-center">
-    <h1 class="text-4xl font-bold">Islamic AI - Moslem Bot</h1>
-    <p class="text-lg mt-2">Your AI companion for Islamic knowledge and daily practice.</p>
+    <h1 class="text-4xl font-bold" data-i18n="title">Islamic AI - Moslem Bot</h1>
+    <p class="text-lg mt-2" data-i18n="subtitle">Your AI companion for Islamic knowledge and daily practice.</p>
   </header>
 
   <main class="max-w-4xl mx-auto p-6">
     <!-- YouTube Video Embed -->
     <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Watch How It Works</h2>
+      <h2 class="text-2xl font-semibold mb-4" data-i18n="watchTitle">Watch How It Works</h2>
       <div class="aspect-w-16 aspect-h-9">
         <iframe class="w-full h-96" src="https://www.youtube.com/embed/c6ufvDnrRrg" title="Islamic AI Features" frameborder="0" allowfullscreen></iframe>
       </div>
@@ -24,51 +33,54 @@
 
     <!-- Features List -->
     <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Features</h2>
+      <h2 class="text-2xl font-semibold mb-4" data-i18n="features">Features</h2>
       <ul class="list-disc list-inside space-y-2">
-        <li>Prayer Time & Qibla Finder</li>
-        <li>Qur'an & Hadith Access</li>
-        <li><a href="moslembot-qa.html" class="text-green-700 hover:underline">Islamic Q&A with AI</a></li>
-        <li>Discussion Forum</li>
-        <li>Zakat & Inheritance Calculators</li>
+        <li data-i18n="feature1">Prayer Time & Qibla Finder</li>
+        <li data-i18n="feature2">Qur'an & Hadith Access</li>
+        <li><a href="moslembot-qa.html" class="text-green-700 hover:underline" data-i18n="feature3">Islamic Q&A with AI</a></li>
+        <li data-i18n="feature4">Discussion Forum</li>
+        <li data-i18n="feature5">Zakat & Inheritance Calculators</li>
       </ul>
     </section>
 
     <!-- FAQ & User Guide -->
     <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">FAQ & User Guide</h2>
+      <h2 class="text-2xl font-semibold mb-4" data-i18n="faqTitle">FAQ & User Guide</h2>
       <div class="space-y-4">
         <div>
-          <h3 class="font-bold">How do I ask a question?</h3>
-          <p>Simply type your Islamic question in the chat interface. Our AI will respond with accurate information from reliable sources.</p>
+          <h3 class="font-bold" data-i18n="faq1q">How do I ask a question?</h3>
+          <p data-i18n="faq1a">Simply type your Islamic question in the chat interface. Our AI will respond with accurate information from reliable sources.</p>
         </div>
         <div>
-          <h3 class="font-bold">Is it free?</h3>
-          <p>Yes, basic features are free. Premium features are also available.</p>
+          <h3 class="font-bold" data-i18n="faq2q">Is it free?</h3>
+          <p data-i18n="faq2a">Yes, basic features are free. Premium features are also available.</p>
         </div>
         <div>
-          <h3 class="font-bold">What are the premium features?</h3>
+          <h3 class="font-bold" data-i18n="faq3q">What are the premium features?</h3>
           <ul class="list-disc list-inside ml-4">
-            <li>Get 20 more chat history quota</li>
-            <li>Can bookmark Quran verses & hadiths</li>
-            <li>Generate API Keys</li>
-            <li>Create threads in discussions</li>
+            <li data-i18n="faq3a1">Get 20 more chat history quota</li>
+            <li data-i18n="faq3a2">Can bookmark Quran verses & hadiths</li>
+            <li data-i18n="faq3a3">Generate API Keys</li>
+            <li data-i18n="faq3a4">Create threads in discussions</li>
           </ul>
         </div>
       </div>
     </section>
 
-     <!-- Call to Action -->
+    <!-- Call to Action -->
     <section class="mb-10 text-center">
-       <p class="mb-4 italic text-lg text-gray-700">"Begin your journey of faith and knowledge — Download Islamic AI - Moslem Bot on Google Play </br> and let guidance be just a tap away."</p>
-       <a href="https://play.google.com/store/apps/details?id=com.sevenmuslims.moslem_bot" target="_blank" class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition">Download on Google Play</a>
+      <p class="mb-4 italic text-lg text-gray-700" data-i18n="ctaText">
+        "Begin your journey of faith and knowledge — Download Islamic AI - Moslem Bot on Google Play <br> and let guidance be just a tap away."
+      </p>
+      <a href="https://play.google.com/store/apps/details?id=com.sevenmuslims.moslem_bot" target="_blank" class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition" data-i18n="ctaButton">
+        Download on Google Play
+      </a>
     </section>
 
     <!-- Instagram Embed -->
     <section>
-      <h2 class="text-2xl font-semibold mb-4">Follow Us on Instagram</h2>
+      <h2 class="text-2xl font-semibold mb-4" data-i18n="followUs">Follow Us on Instagram</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Replace with actual Instagram embeds -->
         <iframe src="https://www.instagram.com/reel/DJTO99LTKvZ/embed" class="w-full h-96 border-none"></iframe>
         <iframe src="https://www.instagram.com/p/DIL_sAUTMMb/embed" class="w-full h-96 border-none"></iframe>
       </div>
@@ -76,7 +88,49 @@
   </main>
 
   <footer class="bg-gray-100 text-center p-4 text-sm mt-10">
-    &copy; 2025 Seven Muslims. All rights reserved.
+    &copy; 2025 Seven Muslims. <span data-i18n="allRights">All rights reserved.</span>
   </footer>
+
+  <!-- Translation Script -->
+  <script>
+    const translations = {
+      id: {
+        title: "Islamic AI - Bot Muslim",
+        subtitle: "Teman AI Anda untuk pengetahuan dan praktik Islam sehari-hari.",
+        watchTitle: "Tonton Cara Kerjanya",
+        features: "Fitur",
+        feature1: "Waktu Sholat & Penentu Arah Kiblat",
+        feature2: "Akses Qur'an & Hadis",
+        feature3: "Tanya Jawab Islami dengan AI",
+        feature4: "Forum Diskusi",
+        feature5: "Kalkulator Zakat & Warisan",
+        faqTitle: "FAQ & Panduan Pengguna",
+        faq1q: "Bagaimana cara bertanya?",
+        faq1a: "Cukup ketik pertanyaan Islam Anda di antarmuka chat. AI kami akan merespons dengan informasi dari sumber yang dapat dipercaya.",
+        faq2q: "Apakah gratis?",
+        faq2a: "Ya, fitur dasar gratis. Fitur premium juga tersedia.",
+        faq3q: "Apa saja fitur premiumnya?",
+        faq3a1: "Dapatkan 20 kuota riwayat chat tambahan",
+        faq3a2: "Dapat menyimpan ayat Qur'an & hadis",
+        faq3a3: "Menghasilkan API Key",
+        faq3a4: "Membuat thread dalam diskusi",
+        ctaText: "Mulailah perjalanan iman dan ilmu Anda — Unduh Islamic AI - Bot Muslim di Google Play <br> dan biarkan petunjuk hanya sejauh ketukan.",
+        ctaButton: "Unduh di Google Play",
+        followUs: "Ikuti Kami di Instagram",
+        allRights: "Hak cipta dilindungi."
+      }
+    };
+
+    const switcher = document.getElementById('languageSwitcher');
+    switcher.addEventListener('change', () => {
+      const lang = switcher.value;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+    });
+  </script>
 </body>
 </html>
