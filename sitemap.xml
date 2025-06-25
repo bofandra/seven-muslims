@@ -9,6 +9,11 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+    <loc>https://moslembot.seven-muslims.com/</loc>
+    <lastmod>2025-06-25</lastmod>
+  </url>
+
   <!-- Apps -->
   <url>
     <loc>https://seven-muslims.com/moslembot.html</loc>
