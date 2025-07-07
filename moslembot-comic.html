@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comic Moslem Bot</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    .slider {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .slide {
+      display: none;
+      max-width: 100%;
+    }
+    .slide.active {
+      display: block;
+    }
+    button {
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+    }
+    .fullscreen-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .fullscreen-controls button {
+      background: rgba(255,255,255,0.7);
+      border: none;
+      padding: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .fullscreen img {
+      max-width: 100%;
+      max-height: 90vh;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Comic Moslem Bot</h1>
+  <div class="subtitle" id="episodeSubtitle">Episode 1</div>
+  <div class="slider">
+    <img src="images/comic1.png" alt="Comic Slide 1" class="slide active">
+    <img src="images/comic2.png" alt="Comic Slide 2" class="slide">
+    <img src="images/comic3.png" alt="Comic Slide 3" class="slide">
+    <img src="images/comic4.png" alt="Comic Slide 4" class="slide">
+    <div>
+      <button onclick="prevSlide()">Previous</button>
+      <button onclick="nextSlide()">Next</button>
+      <button onclick="openFullscreen()">Full Screen</button>
+    </div>
+  </div>
+
+  <div id="fullscreenContainer" class="fullscreen" style="display:none;">
+    <div class="fullscreen-controls">
+      <button onclick="prevSlide(true)">&#8592;</button>
+      <button onclick="nextSlide(true)">&#8594;</button>
+    </div>
+    <img id="fullscreenImg" src="">
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const subtitle = document.getElementById('episodeSubtitle');
+
+    function updateSubtitle(index) {
+      subtitle.textContent = `Episode ${index + 1}`;
+    }
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      updateSubtitle(index);
+      if (document.getElementById('fullscreenContainer').style.display === 'flex') {
+        document.getElementById('fullscreenImg').src = slides[currentSlide].src;
+      }
+    }
+
+    function nextSlide(fullscreen = false) {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide(fullscreen = false) {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function openFullscreen() {
+      const imgSrc = slides[currentSlide].src;
+      document.getElementById('fullscreenImg').src = imgSrc;
+      document.getElementById('fullscreenContainer').style.display = 'flex';
+    }
+
+    function closeFullscreen() {
+      document.getElementById('fullscreenContainer').style.display = 'none';
+    }
+
+    document.getElementById('fullscreenContainer').addEventListener('click', function (e) {
+      if (e.target.id === 'fullscreenContainer') closeFullscreen();
+    });
+
+    updateSubtitle(currentSlide);
+  </script>
+</body>
+</html>
